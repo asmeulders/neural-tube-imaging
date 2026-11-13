@@ -3,9 +3,9 @@
 
 # Data
 demo_images/
-neural_tube_data_raw_nucleusc1_membranec2/
+neural_tube_data_raw/
 outputs/
-
+ultrack_run/*
 
 ### DEFAULT IGNORES
 
