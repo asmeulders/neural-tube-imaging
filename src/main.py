@@ -51,14 +51,10 @@ def canny(data_dir):
     plt.imshow(edge, cmap="gray")
     plt.show()
 
-def main():
-    src_dir = os.path.dirname(os.path.abspath(__file__))
-    project_dir = os.path.dirname(src_dir)
-    data_dir = os.path.join(project_dir, "data")
-
+def ultrack(data_dir):
     model = Ultrack(os.path.join(data_dir, 'neural_tube_data_raw', 'nucleus'))
-
-
+    
+    
     files = sorted(Path(model.folder).glob("*.png"))
     files = sorted(files, key=natural_key)
 
@@ -82,17 +78,12 @@ def main():
     )
     napari.run()
 
-    # plt.subplot(1,2,1)
-    # plt.imshow(img, cmap="gray")
-    # plt.axis("off")
-    # plt.title("input image")
+def main():
+    src_dir = os.path.dirname(os.path.abspath(__file__))
+    project_dir = os.path.dirname(src_dir)
+    data_dir = os.path.join(project_dir, "data")
 
-    # plt.subplot(1,2,2)
-    # plt.imshow(render_label(labels, img=img))
-    # plt.axis("off")
-    # plt.title("prediction + input overlay")
-
-    # plt.show()
+    ultrack(data_dir)
 
 
 if __name__ == "__main__":
